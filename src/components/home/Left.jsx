@@ -24,7 +24,7 @@ const Left = () => {
         Hi, I'm <span className='text-[#1DE5A0]'>Avinash</span>,
       </h1>
       <br />
-      <h1 className='text-2xl md:text-7xl'>a  {' '}
+      <h1 className='text-4xl md:text-5xl'>a  {' '}
       <span className='text-yellow-400 drop-shadow-[0_0_0px_#08f] font-bold'>{text}</span>
       <span><Cursor cursorStyle='|' /></span>
       </h1>
