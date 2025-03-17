@@ -8,28 +8,23 @@ import ScrollAnimation from './components/SrcollAnimation'
 import Portfolio from './components/projects/Projects'
 import Education from './components/education/Education'
 import Contact from './components/contact/Contact'
+import LeetCodeStats from './components/leetcode/Card'
 
 function App() {
 
   return (
 
-      <div className='bg-[#212428]'>
+      <div className='bg-[#02061e]'>
     <NavBar />
     <Home />
     <Aboutme />
     <Features />
-    <br />
-    <br />
-    <br />
-
-    <ScrollAnimation />
-    <br />
-    <br />
-    <br />
-    <Education />
+    {/* <ScrollAnimation /> */}
+    {/* <Education /> */}
+    <LeetCodeStats />
     <Portfolio /> 
-    <Contact />
-
+    {/* <Contact /> */}
+    <br /><br /><br />
     </div>
   )
 }

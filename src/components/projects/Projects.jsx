@@ -13,9 +13,10 @@ import puzzle from '../../assets/images/codepuzzle.png'
 const Features = () => {
   return (
     <div className='w-[100%] h-auto p-10 ' id='PROJECTS'>
-        <h1 className='text-8xl pt-20 lg:pl-32 font-extrabold text-center lg:text-start'>Projects :</h1>
-        <br />
-        <br />
+                    <div className='hidden lg:block'>
+      <br /><br /> <br />
+      </div>
+        <h1 className='text-6xl lg:text-8xl font-bold mx-12 lg:mx-32 my-12 lg:my-8'>Projects :</h1>
             <div className="flex justify-center h-auto">
             <div className='w-[95%] grid justify-around grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 lg:gap-40'>
             <Card image={Bussiness} text="Internship Project" link="https://it-portfolio-beta.vercel.app/" title="Bussiness portfolio" />

@@ -9,7 +9,7 @@ const ContactLeft = () => {
 
                                 <form className="rnt-contact-form rwt-dynamic-form row grid grid-cols-12 gap-2 w-full py-5" id="contact-form" method="POST" action="">
 
-                                    <div className="col-span-12 lg:col-span-6">
+                                    <div className="col-span-12 lg:col-span-6 ">
                                         <div className="form-group">
                                             <label for="contact-name">Your Name</label>
                                             <input className="form-control form-control-lg" name="contact-name" id="contact-name" type="text" />

@@ -9,12 +9,6 @@ import { RiTailwindCssFill } from "react-icons/ri";
 import { FaDiscord } from "react-icons/fa";
 
 
-
-
-
-
-
-
 const Icons = () => {
   return (
     <div className='flex gap-10 w-[100%] md:mt-32 mt-20 md:flex-row flex-col'>

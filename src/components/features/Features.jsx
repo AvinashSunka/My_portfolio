@@ -15,46 +15,49 @@ import { MdOutlineDeveloperMode } from "react-icons/md";
 const Features = () => {
   return (
     <div className='w-[100%] h-auto mt-32' id='FEATURES' >
-        <h1 className='text-6xl lg:text-8xl lg:pl-32 font-extrabold'>What I Do:</h1>
+                    <div className='hidden lg:block'>
+      <br /><br /> <br />
+      </div>
+        <h1 className='text-6xl lg:text-8xl lg:pl-32text-6xl font-bold mx-12 lg:mx-32 my-12 lg:my-8'>Tech Skills :</h1>
             <div className="flex justify-center">
             <div className='w-[90%] lg:m-20 grid justify-center lg:grid-cols-2 xl:grid-cols-3 gap-y-20'>
 
         <Card 
         
             Icon={<MdOutlineDeveloperMode />}
-            Header={'Web Development'} 
-            text={'Custom coding include react.js and django. Doing Web3.0 Front-end and WordPress'}
+            Header={'Full Stack Web Development'} 
+            text={'HTML, CSS, BootStrap, Tailwind CSS, JavaScript, React JS, Django, RestFrameword, API, MYSQL'}
         />
 
 
         <Card 
             Icon={<FaPenNib />}
-            Header={'UI/UX Design'} 
-            text={'Custom coding include react.js and django. Doing Web3.0 Front-end and WordPress'}
+            Header={'Embedded Systems'} 
+            text={'C, C++, X86, Assembly-language, ARM, AMBA Protocols'}
         />
 
         <Card 
             Icon={<IoGlobeOutline />}
             Header={'Machine Learning'} 
-            text={'Custom coding include react.js and django. Doing Web3.0 Front-end and WordPress'}
+            text={'Python, Numpy, Pandas, Matplotlib, Seaborn, SKLearn, Deeplearning, Neural Networks, OpenCV'}
         />
 
         <Card 
             Icon={<FaCamera />}
-            Header={'Photography'} 
-            text={'Custom coding include react.js and django. Doing Web3.0 Front-end and WordPress'}
+            Header={'DSA'} 
+            text={'Arrays, Strings, Bit manipulation, Dynamic Programming, HashTables etc  '}
         />
 
         <Card 
             Icon={<FaLinux />}
-            Header={'Linux'} 
-            text={'Custom coding include react.js and django. Doing Web3.0 Front-end and WordPress'}
+            Header={'Unix Programming'} 
+            text={'Unix Commands, Cshell, Perl, TCL'}
         />
 
         <Card 
             Icon={<FaChalkboardTeacher />}
             Header={'MentorShip'} 
-            text={'Custom coding include react.js and django. Doing Web3.0 Front-end and WordPress'}
+            text={''}
         />
 
     </div>  

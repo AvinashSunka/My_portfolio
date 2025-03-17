@@ -46,6 +46,7 @@ const Education = () => {
   return (
     <div className='h-auto my-10' id='EDUCATION'>
         {/* <h1 className='text-6xl lg:text-8xl p-12 lg:pl-32 font-extrabold'>Education:</h1> */}
+        <br /><br /> <br /><br />
 
         <div className="flex justify-center">
         <div className="flex flex-col md:flex-row w-[90%] text-3xl font-semibold shadow-md shadow-black ">
