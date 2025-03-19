@@ -13,7 +13,7 @@ const Card = ({Icon, Header, text}) => {
         <h1 className='text-5xl md:text-6xl font-bold'>{Header}</h1>
         <br />
         <p className=' font-bold'>Skills : </p>
-        <p className='text-3xl w-[90%] text-blue-700'>{text}</p>
+        <p className='text-3xl w-[90%] text-white'>{text}</p>
         </div>
         </div>
   )
