@@ -13,7 +13,7 @@ const Icons = () => {
   return (
     <div className='flex gap-10 w-[100%] md:mt-32 mt-20 md:flex-row flex-col'>
         <div className='w-1/2 flex flex-col gap-10'>
-        <h1>Social links</h1>
+        <h1 className='text-black dark:text-white'>Social links</h1>
         <div className="flex gap-10">
 
           <Icon icon={<FiGithub/>} link="https://github.com/Silver9876?tab=repositories"/>
@@ -23,7 +23,7 @@ const Icons = () => {
         </div>
 
         <div className='w-1/2 flex flex-col gap-10'>
-        <h1>Skills</h1>
+        <h1 className='text-black dark:text-white'>Skills</h1>
         <div className="flex gap-10">
         <Icon icon={ <IoLogoPython />}/>
         <Icon icon= {<IoLogoReact />} />

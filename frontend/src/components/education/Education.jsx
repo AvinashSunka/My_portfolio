@@ -1,72 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Edu from './Edu';
-import Skill from './Skill';
 import Experience from './Experience';
-import Certifications from './Certifications';
+import EduRight from './EduRight';
+import EduLeft from './EduLeft';
 
 const Education = () => {
-    const [edu, setedu] = useState(false);
-    const [skill, setskill] = useState(false);
-    const [exp, setexp] = useState(true);
-    const [certi, setcerti] = useState(false);
+  const [activeTab, setActiveTab] = useState('education');
 
-
-
-
-
-    const calledu = () =>{
-        setskill(false);
-        setexp(false);
-        setedu (true)
-        setcerti(false)
-    }
-
-    const callskills =()=>{
-        setedu(false);
-        setexp(false);
-        setskill (true)
-        setcerti(false)
-    }
-
-    const callexp =()=>{
-        setedu(false);
-        setskill (false)
-        setexp(true);
-        setcerti(false)
-    }
-
-    const callCertificates = () =>{
-      setedu(false);
-      setskill (false)
-      setexp(false);
-      setcerti(true)
-    }
-
+  const tabs = [
+    { key: 'education', label: 'Education' },
+    { key: 'experience', label: 'Experience' }
+  ];
 
   return (
-    <div className='h-auto my-10' id='EDUCATION'>
-        {/* <h1 className='text-6xl lg:text-8xl p-12 lg:pl-32 font-extrabold'>Education:</h1> */}
-        <br /><br /> <br /><br />
+    <section className="py-16 px-4 md:px-12" id="Portfolio">
+      <div className=" mx-auto">
+        
+        {/* Section Header */}
+        <h2 className="text-4xl text-center m-10 md:text-6xl font-extrabold bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+          My Journey
+        </h2>
 
-        <div className="flex justify-center">
-        <div className="flex flex-col md:flex-row w-[90%] text-3xl font-semibold shadow-md shadow-black ">
-            
-        <button  className="border-none w-[100%] md:w-1/3 text-center p-10 hover:text-blue-400 hover:shadow-lg hover:shadow-black hover:duration-500 rounded-xl " onClick={calledu}>Education</button>
-
-        <button className="border-none w-[100%] md:w-1/3 text-center p-10 hover:text-blue-400 hover:shadow-lg hover:shadow-black hover:duration-500 rounded-xl" onClick={callskills}>Professional Skills</button>
-
-        <button className="border-none w-[100%] md:w-1/3 text-center p-10 hover:text-blue-400 hover:shadow-lg hover:shadow-black hover:duration-500 rounded-xl" onClick={callexp}>Experience</button>
-
-        <button  className="border-none w-[100%] md:w-1/3 text-center p-10 hover:text-blue-400 hover:shadow-lg hover:shadow-black hover:duration-500 rounded-xl " onClick={callCertificates}>Certifications</button>
-      </div>
+        {/* Tabs */}
+        <div className="flex justify-center mb-10">
+          <div className="grid grid-cols-2 gap-4 bg-white/20 dark:bg-black/30 rounded-xl backdrop-blur-md shadow-lg p-4">
+            {tabs.map((tab) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-6 py-3 rounded-xl text-3xl md:text-4xl font-medium transition-all duration-300
+                  ${
+                    activeTab === tab.key
+                      ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-black dark:text-white shadow'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-orange-400'
+                  }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {edu && <Edu />}
-        {skill && <Skill />}
-        {exp && <Experience />}
-        {certi && <Certifications/>}
-    </div>
-  )
-}
+        {/* Tab Content */}
+        <div className="w-full">
+          {activeTab === 'education' && <EduLeft />}
+          {activeTab === 'experience' && <EduRight />}
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default Education
+export default Education;

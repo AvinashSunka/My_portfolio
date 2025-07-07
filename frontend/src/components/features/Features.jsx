@@ -1,69 +1,47 @@
-import React from 'react'
-import Card from './Card'
+import React from 'react';
+import Card from './Card';
 import { IoGlobeOutline } from "react-icons/io5";
-import { FaPenNib } from "react-icons/fa6";
-import { FaCamera } from "react-icons/fa6";
-import { FaLinux } from "react-icons/fa";
-import { FaChalkboardTeacher } from "react-icons/fa";
+import { FaPenNib, FaCamera, FaLinux } from "react-icons/fa6";
 import { MdOutlineDeveloperMode } from "react-icons/md";
 
-
-
-
-
-
 const Features = () => {
+  const expertise_list = ["Problem Solving", "Project Building", "Debugging"];
+
   return (
-    <div className='w-[100%] h-auto mt-32' id='FEATURES' >
-                    <div className='hidden lg:block'>
-      <br /><br /> <br />
+    <section className="w-full py-20 px-4 md:px-10 " id="Services">
+      
+      {/* Heading */}
+        <div className="mb-10 text-center">
+          <h2 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500 dark:from-yellow-400 dark:to-yellow-600">
+            My Expertise
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mt-2">
+            My Quality Services
+          </p>
+        </div>
+
+      {/* Cards Container */}
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-10  mx-auto">
+        <Card 
+          Icon={<MdOutlineDeveloperMode />}
+          Header="Full Stack Web Development"
+          text="HTML, CSS, Tailwind, JavaScript, React, Django, DRF, REST APIs, MySQL"
+          expertise_list={expertise_list}
+          image={"https://validthemes.net/site-template/xorim/assets/img/thumb/3.jpg"}
+        />
+
+        <Card 
+          Icon={<FaPenNib />}
+          Header="Embedded Systems"
+          text="C, C++, x86, ARM, AMBA Protocols, Assembly"
+          expertise_list={expertise_list}
+          image={"https://siliconsignals.io/wp-content/uploads/2024/11/Delivering-Industry-Best-Android-BSP-Solutions.svg"}
+        />
+
+
       </div>
-        <h1 className='text-6xl lg:text-8xl lg:pl-32text-6xl font-bold mx-12 lg:mx-32 my-12 lg:my-8'>Tech Skills :</h1>
-            <div className="flex justify-center">
-            <div className='w-[90%] lg:m-20 grid justify-center lg:grid-cols-2 xl:grid-cols-3 gap-y-20'>
+    </section>
+  );
+};
 
-        <Card 
-        
-            Icon={<MdOutlineDeveloperMode />}
-            Header={'Full Stack Web Development'} 
-            text={'HTML, CSS, BootStrap, Tailwind CSS, JavaScript, React JS, Django, RestFrameword, API, MYSQL'}
-        />
-
-
-        <Card 
-            Icon={<FaPenNib />}
-            Header={'Embedded Systems'} 
-            text={'C, C++, X86, Assembly-language, ARM, AMBA Protocols'}
-        />
-
-        <Card 
-            Icon={<IoGlobeOutline />}
-            Header={'Machine Learning'} 
-            text={'Python, Numpy, Pandas, Matplotlib, Seaborn, SKLearn, Deeplearning, Neural Networks, OpenCV'}
-        />
-
-        <Card 
-            Icon={<FaCamera />}
-            Header={'DSA'} 
-            text={'Arrays, Strings, Bit manipulation, Dynamic Programming, HashTables etc  '}
-        />
-
-        <Card 
-            Icon={<FaLinux />}
-            Header={'Unix Programming'} 
-            text={'Unix Commands, Cshell, Perl, TCL'}
-        />
-
-        <Card 
-            Icon={<FaChalkboardTeacher />}
-            Header={'MentorShip'} 
-            text={''}
-        />
-
-    </div>  
-      </div>
-    </div>
-  )
-}
-
-export default Features
+export default Features;

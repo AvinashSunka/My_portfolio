@@ -11,9 +11,9 @@ const Edu = () => {
         <EduLeft />
         </div>
 
-        <div className=" w-[40%] hidden lg:block">
+        {/* <div className=" w-[40%] hidden lg:block">
         <EduRight />
-        </div>
+        </div> */}
 
     </div>
 </div>

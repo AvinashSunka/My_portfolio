@@ -1,24 +1,35 @@
-import React from 'react'
-import './Cards.css'
+import React from 'react';
+import { HiArrowUpRight } from 'react-icons/hi2';
 
-
-const Cards = ({image, text, link, title}) => {
+const ProjectCard = ({ image, category = "UX Design", year = "2022", title = "Back-End Development" }) => {
   return (
-    <div className='outer my-6 sm:my-0' >
-      <div className="container1 w-full aspect-square " >
-      <div className="card h-[100%] flex justify-center">
-          <div className="front bg-transparent flex justify-center items-center p-6 w-full h-full" >
-            <img src={image}  alt="" className='w-[100%] h-[100%]  rounded-2xl'/>
-          </div>
-          <div className="back bg-transparent h-[100%] w-full" >
-            <h1 className='text-white text-7xl lg:text-8xl text-center'>{title}</h1>
-            <p>{text}</p>
-            <button type='submit' className='w-1/2 p-8 hover:bg-green-700 text-4xl font-bold hover:text-white text-center '><a href={link} className='hover:text-white text-center'>Website</a></button>
-          </div>
-    </div>
-  </div>
-    </div>
-  )
-}
+    <div className="relative bg-black/90 dark:bg-[#0f0f0f] rounded-2xl overflow-hidden shadow-xl w-full group transition-all duration-300">
+      
+      {/* Image Section */}
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-[400px] object-cover object-center transition-transform duration-300 group-hover:scale-105"
+      />
 
-export default Cards
+      {/* Overlay Footer */}
+      <div className="absolute inset-x-0 bottom-0 bg-black/80 dark:bg-[#111]/90 backdrop-blur-md p-5 flex items-center justify-between">
+        
+        {/* Text Info */}
+        <div className='w-full '>
+          <p className="text-xl text-orange-400 uppercase font-semibold tracking-wide mb-1">
+            {category}, {year}
+          </p>
+          <h3 className="text-5xl font-bold text-white">{title}</h3>
+        </div>
+
+        {/* Arrow Button */}
+        <button className="bg-orange-500 hover:bg-orange-600 transition p-8 rounded-full shadow-md w-auto">
+          <HiArrowUpRight className="text-white text-2xl" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default ProjectCard;

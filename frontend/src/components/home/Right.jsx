@@ -1,19 +1,18 @@
-import React from 'react';
-
 const Right = ({ profileImageElement }) => {
   return (
-    <div className='w-auto md:w-auto md:h-auto flex justify-center lg:flex-col lg:justify-start'>
-      <br /><br /><br />
-      <div className="flex lg:justify-center xl:mt-72">
-        <div className="xl:shadow-2xl xl:shadow-black xl:w-[600px] lg:flex lg:justify-center xl:h-[300px] lg:items-end rounded-[30px]">
-          <div className="w-[100%] flex justify-center xl:w-1/2 2xl:w-3/4 xl:p-10">
-            {profileImageElement}
-          </div>
-        </div>
+    <div className="relative flex items-center w-full md:w-1/2 py-8">
+      {/* Orange Background Block */}
+      <div className="absolute top-20 hidden md:top-32 left-8 md:left-24 w-[320px] md:w-[400px] h-[420px] md:h-[500px] bg-[#f5a623] dark:bg-[#f59e0b] rounded-3xl z-0 shadow-lg md:flex flex-col justify-center items-center px-6 text-center" >
+         </div>
+      
+
+      {/* Profile Image */}
+      <div className="relative z-10 md:w-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-white dark:bg-gray-800">
+        {profileImageElement}
       </div>
+
     </div>
   );
 };
 
 export default Right;
-    

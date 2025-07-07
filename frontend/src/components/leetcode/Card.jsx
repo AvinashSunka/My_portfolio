@@ -3,8 +3,9 @@ import axios from "axios";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-function LeetCodeStats() {
+const LeetCodeStats = () => {
   const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -14,23 +15,30 @@ function LeetCodeStats() {
           setStats(res.data[0]);
         }
       })
-      .catch((err) => console.error("Failed to fetch LeetCode stats:", err));
+      .catch((err) => console.error("Failed to fetch LeetCode stats:", err))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
-    <div className="p-6 my-16 text-white flex justify-center">
-      <div className="rounded-xl border border-white p-6 lg:w-2/3 bg-gray-900 shadow-md">
-        <h2 className="text-3xl font-bold text-center mb-2">LeetCode Stats</h2>
-        {stats ? <StatCard stats={stats} /> : <p className="text-center">Loading...</p>}
+    <section className="py-16 px-4 md:px-8" id="leetcode-stats">
+      <div className=" mx-auto backdrop-blur-md p-8 rounded-2xl shadow-xl">
+        <h2 className="text-7xl text-center mb-20 font-extrabold bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">LeetCode Stats</h2>
+        {loading ? (
+          <p className="text-center text-black dark:text-white">Loading...</p>
+        ) : stats ? (
+          <StatsContent stats={stats} />
+        ) : (
+          <p className="text-center text-red-500">No data available.</p>
+        )}
       </div>
-    </div>
+    </section>
   );
-}
+};
 
-const StatCard = ({ stats }) => {
-  const total_easy = 500;
-  const total_medium = 500;
-  const total_hard = 500;
+const StatsContent = ({ stats }) => {
+  const total_easy = stats.easy_total;
+  const total_medium = stats.medium_total;
+  const total_hard = stats.hard_total;
 
   const totalQuestions = total_easy + total_medium + total_hard;
   const progress = (stats.problems_solved / totalQuestions) * 100;
@@ -42,37 +50,67 @@ const StatCard = ({ stats }) => {
   ];
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <div className="w-40">
-        <CircularProgressbar
-          value={progress}
-          text={`${stats.problems_solved} solved`}
-          styles={buildStyles({
-            textColor: "#fff",
-            pathColor: "#08f",
-            trailColor: "#333",
-          })}
-        />
-      </div>
-      <div className="text-center">
-        <p className="font-semibold text-xl">{stats.username}</p>
-        <p className="text-gray-400">{stats.ranking}</p>
+    <div className="flex items-center gap-10">
+      {/* Profile and Overall Progress */}
+      <div className="flex flex-col md:flex-row gap-10 items-center w-full justify-center">
+        {/* Circular Progress */}
+  <div className="w-48 md:w-96">
+  <CircularProgressbar
+    value={progress}
+    text={`${stats.problems_solved} Solved`}
+    styles={buildStyles({
+      textColor: "var(--text-color)",
+      pathColor: "var(--path-color)",
+      trailColor: "var(--trail-color)",
+    })}
+  />
+</div>
+
+<style jsx global>{`
+  :root {
+    --text-color: #1f2937;      /* Gray-800 */
+    --path-color: #3b82f6;      /* Blue-500 */
+    --trail-color: #e5e7eb;     /* Gray-200 */
+  }
+  .dark {
+    --text-color: #ffffff;
+    --path-color: #60a5fa;      /* Blue-400 */
+    --trail-color: #374151;     /* Gray-700 */
+  }
+`}</style>
+
+
+        {/* User Info */}
+        <div className="text-center md:text-left space-y-2">
+          <h3 className="text-2xl md:text-4xl font-extrabold bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">{stats.username}</h3>
+          <p className="dark:text-gray-500 text-gray-400">{stats.ranking}</p>
+          <p className="text-2xl dark:text-gray-400 text-gray-500 italic">
+            Total Questions Considered: {totalQuestions}
+          </p>
+        </div>
       </div>
 
-      <div className="w-full space-y-3">
+      {/* Difficulty Bars */}
+      <div className="w-full space-y-6">
         {difficulties.map((diff, i) => {
           const width = diff.total > 0 ? (diff.solved / diff.total) * 100 : 0;
+          const colorMap = {
+            green: "bg-green-400",
+            yellow: "bg-yellow-400",
+            red: "bg-red-400"
+          };
+
           return (
             <div key={i}>
-              <div className="flex justify-between mb-1">
+              <div className="flex justify-between text-3xl mb-1 font-medium">
                 <span className={`text-${diff.color}-400`}>{diff.label}</span>
                 <span className={`text-${diff.color}-400`}>
                   {diff.solved} / {diff.total}
                 </span>
               </div>
-              <div className="w-full h-4 bg-gray-700 rounded-full">
+              <div className="w-full h-6 md:h-10 dark:bg-gray-300 bg-gray-700 rounded-full overflow-hidden">
                 <div
-                  className={`bg-${diff.color}-400 h-full rounded-full`}
+                  className={`${colorMap[diff.color]} h-full rounded-full transition-all duration-500`}
                   style={{ width: `${width}%` }}
                 />
               </div>

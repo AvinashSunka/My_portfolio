@@ -1,75 +1,63 @@
-import React from 'react'
+import React from 'react';
+
+const experienceData = [
+  {
+    title: 'Internship at Nexus',
+    year: '2021',
+    type: 'Internship',
+    description:
+      'Worked on basic frontend and backend modules. Gained experience in real-world project management and teamwork using Git and Agile practices.',
+  },
+  {
+    title: 'Internship at Edunet Foundation',
+    year: '2022',
+    type: 'Internship',
+    description:
+      'Built educational applications using Python and JavaScript. Focused on enhancing digital literacy through real-time problem solving.',
+  },
+  {
+    title: 'Internship at BharatIntern',
+    year: '2022',
+    type: 'Internship',
+    description:
+      'Developed responsive websites and contributed to full-stack development projects. Collaborated remotely and improved debugging skills.',
+  }
+];
 
 const EduRight = () => {
   return (
-    <div>
-      <div className="tab-pane fade" id="interview" role="tabpanel" aria-labelledby="interview-tab">
-            <div className="personal-experience-inner mt--40">
-                 <div className="row">
-        {/* <!-- Start Skill List Area  --> */}
-                    <div className="col-lg-6 col-md-12 col-12">
-                        <div className="content">
-                            <span className="subtitle">2021 - Now</span>
-                            <h4 className="maintitle">Experience :</h4>
-                                <div className="experience-list">
+    <section className="w-full py-12 md:py-16 px-4 md:px-10">
+      <div className="mx-auto">
+        <h2 className="text-5xl md:text-6xl font-bold mb-10 text-center text-gray-900 dark:text-white">
+          Experience
+        </h2>
 
-                    {/* <!-- Start Single List  --> */}
-                                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true" className="resume-single-list">
-                                        <div className="inner">
-                                             <div className="heading">
-                                            <div className="title">
-                                            <h4>Internship at Nexus</h4>
-                                            <span>2021</span>
-                                            </div>
-                                            <div className="date-of-time">
-                                                <span>Internship</span>
-                                            </div>
-                            </div>
-                            <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quae, beatae mollitia nam repellendus illum earum, cumque voluptatum sit fugiat iure non repudiandae, vero eaque consequuntur totam explicabo maiores inventore!</p>
-                        </div>
-                    </div>
-                    {/* <!-- End Single List  --> */}
-
-                    {/* <!-- Start Single List  --> */}
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true" className="resume-single-list">
-                        <div className="inner">
-                            <div className="heading">
-                                <div className="title">
-                                    <h4> Internship at Edunet foundation</h4>
-                                    <span>2022</span>
-                                </div>
-                                <div className="date-of-time">
-                                    <span>Internship</span>
-                                </div>
-                            </div>
-                            <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, totam sunt dicta explicabo asperiores itaque rerum a amet, vel nulla eaque quidem officiis laudantium nobis quam et fugiat natus recusandae.</p>
-                        </div>
-                    </div>
-                    {/* <!-- End Single List  --> */}
-
-                    {/* <!-- Start Single List  --> */}
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-once="true" className="resume-single-list">
-                        <div className="inner">
-                            <div className="heading">
-                                <div className="title">
-                                    <h4>Intenship at BharatIntern</h4>
-                                    <span>2022</span>
-                                </div>
-                                <div className="date-of-time">
-                                    <span>Internship</span>
-                                </div>
-                            </div>
-                            <p className="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae nam, labore nostrum quisquam perferendis voluptatum animi cumque vitae illum distinctio aspernatur neque necessitatibus molestiae mollitia ad est. Velit, earum error!</p>
-                        </div>
-                    </div></div>
-                    {/* <!-- End Single List  --> */}
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {experienceData.map((exp, index) => (
+            <div
+              key={index}
+              className="bg-white/40 dark:bg-black/30 backdrop-blur-lg shadow-lg rounded-2xl p-6 md:p-8 transition hover:scale-[1.02] duration-300"
+            >
+              <div className="flex justify-between items-start mb-3 p-10">
+                <div>
+                  <h3 className="text-3xl md:text-4xl font-semibold text-gray-800 dark:text-white">
+                    {exp.title}
+                  </h3>
+                  <p className="text-xl text-gray-600 dark:text-gray-300">{exp.year}</p>
                 </div>
+                <div className="text-lg font-medium bg-blue-100 dark:bg-blue-700/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full">
+                  {exp.type}
+                </div>
+              </div>
+              <p className="text-gray-700 dark:text-gray-300 text-xl md:text-2xl leading-relaxed px-10 pb-10">
+                {exp.description}
+              </p>
             </div>
+          ))}
         </div>
-    </div>
-    </div></div>
-  )
-}
+      </div>
+    </section>
+  );
+};
 
-export default EduRight
+export default EduRight;

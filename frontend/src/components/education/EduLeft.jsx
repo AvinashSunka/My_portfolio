@@ -1,75 +1,67 @@
-import React from 'react'
+import React from 'react';
+
+const educationData = [
+  {
+    title: 'JNTU Manthani',
+    period: 'B.TECH (2021 - Present)',
+    score: '7.1 / 10',
+    description:
+      'Studying core computer science subjects, projects in web and embedded systems, with a strong foundation in programming and system design.'
+  },
+  {
+    title: 'TSRJC, Nandhi Medaram',
+    period: 'INTERMEDIATE (2018 - 2020)',
+    score: '933 / 1000',
+    description:
+      'Focused on Mathematics, Physics, and Chemistry. Built strong analytical thinking and logical problem-solving skills.'
+  },
+  {
+    title: 'ZPHS, Eligaid',
+    period: '10th (2017 - 2018)',
+    score: '9.0 / 10',
+    description:
+      'Completed basic education with a focus on science and mathematics, setting a strong academic foundation.'
+  }
+];
 
 const EduLeft = () => {
   return (
-<div className=''> 
-      <div className="tab-pane fade" id="interview" role="tabpanel" aria-labelledby="interview-tab ">
-            <div className="personal-experience-inner mt--40">
-                 <div className="row">
-        {/* <!-- Start Skill List Area  --> */}
-                    <div className="col-lg-6 col-md-12 col-12">
-                        <div className="content">
-                            <span className="subtitle">2017 - Now</span>
-                            <h4 className="maintitle">Education</h4>
-                                <div className="experience-list">
+    <section className="w-full py-12 md:py-16 px-4 md:px-10">
+      <div className="mx-auto">
+        <h2 className="text-5xl md:text-6xl font-bold mb-10 text-center text-gray-900 dark:text-white">
+          Education
+        </h2>
 
-                    {/* <!-- Start Single List  --> */}
-                                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true" className="resume-single-list ">
-                                        <div className="inner ">
-                                             <div className="heading">
-                                            <div className="title">
-                                            <h4>JNTU Manthani</h4>
-                                            <span>B.TECH (2021 - present)</span>
-                                            </div>
-                                            <div className="date-of-time">
-                                                <span>7.1/10</span>
-                                            </div>
-                            </div>
-                            <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto neque alias eius? Nostrum inventore voluptatibus praesentium nam hic mollitia accusamus asperiores tenetur magnam, itaque ipsam voluptate ratione aliquid! Vero?</p>
-                        </div>
-                    </div>
-                    {/* <!-- End Single List  --> */}
-
-                    {/* <!-- Start Single List  --> */}
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true" className="resume-single-list">
-                        <div className="inner">
-                            <div className="heading">
-                                <div className="title">
-                                    <h4> TSRJC, NANDHI MEDARAM </h4>
-                                    <span>INTERMEDIATE (2018 - 2020)</span>
-                                </div>
-                                <div className="date-of-time">
-                                    <span>933/1000</span>
-                                </div>
-                            </div>
-                            <p className="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias recusandae aperiam dolores sequi distinctio ipsa iste nam, mollitia ea voluptas, quibusdam magni, quia error nemo reiciendis repellat nulla quisquam illum?</p>
-                        </div>
-                    </div>
-                    {/* <!-- End Single List  --> */}
-
-                    {/* <!-- Start Single List  --> */}
-                    <div data-aos="fade-up" data-aos-duration="500" data-aos-delay="700" data-aos-once="true" className="resume-single-list">
-                        <div className="inner">
-                            <div className="heading">
-                                <div className="title">
-                                    <h4>ZPHS, ELIGAID</h4>
-                                    <span>10th (2017 - 2018)</span>
-                                </div>
-                                <div className="date-of-time">
-                                    <span>9.0/10</span>
-                                </div>
-                            </div>
-                            <p className="description"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore numquam at animi perferendis earum neque eum assumenda corrupti. Assumenda cum perferendis esse sit voluptatibus debitis corrupti autem laudantium excepturi impedit?</p>
-                        </div>
-                    </div></div>
-                    {/* <!-- End Single List  --> */}
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {educationData.map((edu, index) => (
+            
+            <div
+              key={index}
+              className="bg-white/40 dark:bg-black/30 backdrop-blur-lg shadow-lg rounded-2xl p-6 md:p-8 transition hover:scale-[1.02] duration-300"
+            >
+                
+              <div className="flex justify-between items-start mb-3 p-10 ">
+                <div className='grid grid-cols-1 gap-5'>
+                  <h3 className="text-3xl md:text-4xl font-semibold text-gray-800 dark:text-white">
+                    {edu.title}
+                  </h3>
+                  <p className="text-xl text-gray-600 dark:text-gray-300">{edu.period}</p>
                 </div>
-            </div>
-        </div>
-    </div>
-    </div></div>
-  )
-}
+                
+                <div className="inline-flex items-center justify-center px-4 py-1 text-lg font-medium bg-yellow-100 dark:bg-yellow-700/30 text-yellow-800 dark:text-yellow-300 rounded-full whitespace-nowrap">
+                  {edu.score}
+                </div>
 
-export default EduLeft
+              </div>
+              <p className="text-gray-700 dark:text-gray-300 text-xl md:text-2xl leading-relaxed px-10 pb-10">
+                {edu.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default EduLeft;
